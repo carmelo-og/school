@@ -1,11 +1,14 @@
 class Fib {
     fun main() {
-        val n = 10
+        print("Enter the nth fibonacci number to generate up to: ")
+        // Get user selection
+        var stringInput: String = readLine()!!  // !! is the not-null assertion operator
+        var n = stringInput.toInt()
         var t1 = 0
         var t2 = 1
 
         println("\nFibonacci Generator")
-        print("First $n terms: ")
+        print("The first $n fib numbers are: ")
 
         for (i in 1..n) {
             if(i == n)
