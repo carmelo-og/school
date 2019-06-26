@@ -1,8 +1,8 @@
 import java.util.Scanner
 
 data class Subject(var name: String, var grade: Double, var credit: Double)
-//Data classes are a concise way to create classes that just hold data.
-//The "hashCode"/"equals" and "toString" methods are automatically generated.
+// Data classes are a concise way to create classes that just hold data.
+// Compiler generates getters and setters for classes, as well as equals(), toString(), hashCode() and copy()
 
 fun addSubject(list: MutableList<Subject>){
     print("Enter the class name: ")
@@ -11,15 +11,16 @@ fun addSubject(list: MutableList<Subject>){
     var userInGrade = parseGrade(readLine())
 
     print("Enter the number of credits: ")
-    var userInCredit = readLine()?.toDoubleOrNull()
+    var userInCredit = readLine()?.toDoubleOrNull() // ? Safe call operator
 
     if (userInName == null || userInGrade == null || userInGrade == -1.0 || userInCredit == null){
         println("Invalid entry detected, try again.")
     } else{
         list.add(Subject(userInName, userInGrade, userInCredit))
     }
-
 }
+// In Kotlin, the type system distinguishes between references that can hold null (nullable references),
+// and those that can not (non-null references).
 
 fun editSubject(list: MutableList<Subject>){
     print("Enter the index to replace: ")
@@ -47,9 +48,10 @@ fun editSubject(list: MutableList<Subject>){
 
 fun showAllSubjects(list: MutableList<Subject>){
     for(x in list){
-        println(x.toString())
+        println(x.toString()) // Data class utilizes built-in toString
     }
 }
+
 
 fun calcGpa(list: MutableList<Subject>){
     var totalCreditHours = 0.0
@@ -80,6 +82,8 @@ fun parseGrade(grade: String?): Double?{
         else -> return -1.0
     }
 }
+// When matches its argument against all branches sequentially until some branch condition is satisfied.
+// Essentially replaces the switch operator of C-like languages.
 
 class GpaCalc(){
     fun main(){
