@@ -8,7 +8,7 @@ class Main {
                 "1) Fibonacci Generator\n" +
                 "2) Power Set\n" +
                 "3) Flashcards\n" +
-        // Add more options
+                "4) GPA Calculator\n" +
                 "0) Exit\n"
 
         while(true) {
@@ -23,6 +23,7 @@ class Main {
                 1 -> Fib().main()
                 2 -> PowerSetMain().main()
                 3 -> FlashCardReader().main()
+                4 -> GpaCalc().main()
                 else -> { // Note the block
                     print("Invalid Selection")
                 }
